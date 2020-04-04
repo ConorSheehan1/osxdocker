@@ -17,15 +17,7 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install docker
       run: |
-        brew install docker docker-machine
-    - name: Install virtual box
-      run: |
-        brew cask install virtualbox
-    - name: Set up docker
-      run: |
-        docker-machine create --driver virtualbox default
-        docker-machine env default
-        eval "$(docker-machine env default)"
+        brew cask install docker
     - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v1
       with:
