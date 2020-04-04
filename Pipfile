@@ -7,6 +7,7 @@ verify_ssl = true
 # flit should symlink osxdocker into bin dir of venv after `pipenv run dev_install`
 dev_osxdocker = "python osxdocker/docker_logs.py"
 dev_install = "flit install --symlink"
+tests = "pytest"
 
 [dev-packages]
 black = "*"
