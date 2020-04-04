@@ -1,0 +1,13 @@
+[build-system]
+requires = ["flit_core >=2,<3"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "osxdocker"
+author = "Conor Sheehan"
+author-email = "conor.sheehan.dev@gmail.com"
+classifiers = ["License :: OSI Approved :: MIT License"]
+requires = ["fire"]
+
+[tool.flit.scripts]
+osxdocker = "osxdocker:main"
