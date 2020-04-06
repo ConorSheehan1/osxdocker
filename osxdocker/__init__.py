@@ -1,5 +1,5 @@
 """
-A python CLI for working with docker on OSX
+A CLI for working with docker on OSX
 """
 
 __version__ = "0.0.1"

@@ -10,7 +10,7 @@ dev_install = "flit install --symlink"
 tests = "python -m pytest tests"
 lint = "black ."
 # need ~/.pypirc setup
-publish_test = "flit --repository testpypi publish"
+publish_test = "flit publish --repository testpypi"
 
 [dev-packages]
 black = "*"
