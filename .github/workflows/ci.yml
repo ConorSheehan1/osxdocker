@@ -15,9 +15,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install docker
-      run: |
-        brew cask install docker
+    # # no docker support on osx images :( 
+    # # https://github.community/t5/GitHub-Actions/Why-is-Docker-not-installed-on-macOS/m-p/39364#M3782
+    # # can't run tests, and can't install through brew without interactive shell to install docker desktop
+    # - name: Install docker
+    #   run: |
+    #     brew cask install docker
     - name: Set up Python ${{ matrix.python }}
       uses: actions/setup-python@v1
       with:
@@ -30,9 +33,9 @@ jobs:
     - name: Install python packages
       run: |
         pipenv install --verbose --dev --skip-lock --python=${{ matrix.python }}
-    - name: Run tests
-      run: |
-        pipenv run tests
+    # - name: Run tests
+    #   run: |
+    #     pipenv run tests
     - name: Lint with black
       run: |
         pipenv run black --check .
