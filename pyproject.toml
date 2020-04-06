@@ -6,8 +6,32 @@ build-backend = "flit_core.buildapi"
 module = "osxdocker"
 author = "Conor Sheehan"
 author-email = "conor.sheehan.dev@gmail.com"
-classifiers = ["License :: OSI Approved :: MIT License"]
+home-page = "https://github.com/ConorSheehan1/osxdocker"
+description-file="README.md"
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Docker",
+]
+platform = [ 
+    "Darwin" 
+]
+requires-python=">=3.5"
 requires = ["fire"]
+
+[tool.flit.metadata.requires-extra]
+test = [
+    "black",
+    "pytest",
+    "docker",
+    "rope",
+]
 
 [tool.flit.scripts]
 osxdocker = "osxdocker:main"
+
+[tool.flit.sdist]
+exclude = [
+    "Pipfile.lock"
+]

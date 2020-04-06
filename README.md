@@ -5,17 +5,31 @@
 
 # osxdocker
 This is a small CLI for working with docker on OSX.
-Currently it only handles docker logs, because that was an issue for me on OSX.
+Currently it only handles docker logs, because I found it annoying starting up a screen session to get to the docker vm every time I wanted to clear logs.
 See: https://stackoverflow.com/questions/42527291/clear-logs-in-native-docker-on-mac
 
-### Dev Install
+### Usage
+```bash
+# list available commands
+osxdocker
+
+# get log path
+osxdocker log_path $some_container_name
+
+# clear logs
+osxdocker clear_log $some_container_name
 ```
+
+### Dev Install
+```bash
 pipenv install
 pipenv run local_install
 pipenv run osxdocker
 ```
 
-### Example usage
-```
-pipenv run osxdocker clear_log some_container_name
+### Dev tools
+I set this project up using https://github.com/takluyver/flit/
+
+```bash
+flit --repository testpypi publish
 ```
