@@ -11,6 +11,7 @@ tests = "python -m pytest tests"
 lint = "black ."
 # need ~/.pypirc setup
 publish_test = "flit publish --repository testpypi"
+publish = "flit publish"
 
 [dev-packages]
 black = "*"
