@@ -54,16 +54,16 @@ class DockerLogs:
         return log_path
 
     def log_path(self, container_name):
-        '''gets the path to the logfile in the vm for a container name'''
+        """gets the path to the logfile in the vm for a container name"""
         return self._name_to_logpath(container_name)
 
     def cat_log(self, container_name):
-        '''prints the log to stdout'''
+        """prints the log to stdout"""
         container_id = self._name_to_id(container_name)
         return self._get_shell_output(["docker", "logs", container_id])
 
     def clear_log(self, container_name):
-        '''clears the log file without deleting it'''
+        """clears the log file without deleting it"""
         log_path = self._name_to_logpath(container_name)
         # start screen
         os.system(f"screen -dmS {self.screen_name} {self.vm_path}")

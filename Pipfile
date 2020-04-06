@@ -8,6 +8,7 @@ verify_ssl = true
 dev_osxdocker = "python osxdocker/docker_logs.py"
 dev_install = "flit install --symlink"
 tests = "python -m pytest tests"
+lint = "black ."
 
 [dev-packages]
 black = "*"
