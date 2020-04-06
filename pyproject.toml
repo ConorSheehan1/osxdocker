@@ -12,7 +12,8 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Topic :: Software Development :: Docker",
+    "Topic :: Software Development",
+    "Topic :: Utilities",
 ]
 requires-python=">=3.5"
 requires = ["fire"]
