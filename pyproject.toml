@@ -14,9 +14,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Software Development :: Docker",
 ]
-platform = [ 
-    "Darwin" 
-]
 requires-python=">=3.5"
 requires = ["fire"]
 
