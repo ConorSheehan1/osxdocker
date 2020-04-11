@@ -10,38 +10,56 @@ A CLI for working with docker on OSX
 Currently it only handles docker logs, because I found it annoying starting up a screen session to get to the docker vm every time I wanted to clear logs.
 See: https://stackoverflow.com/questions/42527291/clear-logs-in-native-docker-on-mac
 
-# Install
+## Install
 ```bash
-pip install osxdocker
+# python3 only
+pip3 install osxdocker
 ```
 
-### Usage
+## Usage
 ```bash
 # clear logs
 osxdocker clear_log $some_container_name
 
-# get log path
-osxdocker log_path $some_container_name
-
-# list available commands
+# list available commands and flags
 osxdocker
 ```
 
+![clear_log_example](.github/images/clear_log_example.png)
+
+This cli uses https://github.com/google/python-fire  
+Check out the docs for more details on usage, setting up bash completion, etc.
+
+#### Edge cases and gotchas
+Container names are unique, but containers are filtered by regex, so you can still run into issues.  
+e.g. You have two containers, named foo and foo_too.  
+`osxdocker cat_log foo` will fail because it matches foo and foo_too.  
+`osxdocker cat_log ^foo$` will work because it matches foo exactly.
+
+![multiple_container_error](.github/images/multiple_container_error.png)
+
+## Developer details
 ### Dev Install
 ```bash
-# install dev dependencies, install package as symlink to avoid reinstall whenever code changes
-pipenv install
-pipenv run local_install
-pipenv run osxdocker # only runs from pipenv in dev
+# install dev dependencies
+pipenv install --dev
+
+# install osxdocker as symlink to avoid reinstall whenever code changes
+pipenv run dev_install
+
+# only runs from pipenv in dev
+pipenv run osxdocker 
 ```
 
+### Test pypi install
 ```bash
 # install from test pypi, allow pull from non-test pypi for fire
 pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple osxdocker
 ```
 
 ### Dev tools
-I set this project up using https://github.com/takluyver/flit/
+#### Deploy
+https://github.com/takluyver/flit/ manages building and deploying
 
 ```bash
 # build dist
@@ -52,4 +70,18 @@ pipenv run publish_test
 
 # really publish
 pipenv run publish
+```
+
+#### Tests
+```bash
+pipenv run tests
+```
+
+#### Linter
+```bash
+# to autoformat python code
+pipenv run lint
+
+# to sort imports
+pipenv run isort -y
 ```
