@@ -3,7 +3,7 @@ name: ci
 on:
   push:
   schedule:
-      - cron: '0 0 * * 1' # Every monday at midnight
+    - cron: '0 0 * * 1' # Every monday at midnight
 
 jobs:
   build:

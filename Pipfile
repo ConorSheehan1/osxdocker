@@ -19,12 +19,15 @@ rope = "*"
 flit = "*"
 pytest = "*"
 docker = "*"
+isort = {extras = ["pipfile"],version = "*"}
 
 [packages]
 fire = "*"
+termcolor = "*"
 
 [requires]
 python_version = "3"
 
 [pipenv]
+# required for black
 allow_prereleases = true
