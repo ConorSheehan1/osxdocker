@@ -29,6 +29,11 @@ osxdocker
 
 This cli uses https://github.com/google/python-fire  
 Check out the docs for more details on usage, setting up bash completion, etc.
+Also worth noting this cli doesn't support --version due to a quirk with fire.
+```bash
+osxdocker version # works fine
+osxdocker --version # won't work
+```
 
 #### Edge cases and gotchas
 Container names are unique, but containers are filtered by regex, so you can still run into issues.  

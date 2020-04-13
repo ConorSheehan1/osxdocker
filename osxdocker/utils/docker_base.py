@@ -2,6 +2,7 @@
 import subprocess
 
 # osxdocker
+from osxdocker import __version__
 from osxdocker.utils.warn import warn
 
 
@@ -17,6 +18,13 @@ class DockerBase:
         self.screen_name = screen_name
         self.encoding = encoding
         self.vm_path = vm_path
+
+        # can't use --version, adding version arg to __init__ seems to open help screen.
+        # if version:
+        #     print(__version__)
+
+    def version(self):
+        print(__version__)
 
     def _get_shell_output(self, args):
         # subprocess stdout is in bytes with trailing new line. need to decode and strip to get string back.
@@ -63,8 +71,10 @@ class DockerBase:
         log_path = self._get_shell_output(
             ["docker", "inspect", "--format='{{.LogPath}}'", container_id]
         )
+
         if not log_path:
             warn(f"log_path not found for container '{container_id}'.", self.debug)
+
         return log_path
 
     def _name_to_logpath(self, container_name):
