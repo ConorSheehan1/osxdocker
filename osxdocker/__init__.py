@@ -2,7 +2,7 @@
 A CLI for working with docker on OSX
 """
 
-__version__ = "0.0.2"
+__version__ = "0.1.0"
 
 
 # Third party
