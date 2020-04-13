@@ -20,7 +20,6 @@ flit = "*"
 pytest = "*"
 docker = "*"
 isort = {extras = ["pipfile"],version = "*"}
-termcolor = "*"
 
 [packages]
 fire = "*"
