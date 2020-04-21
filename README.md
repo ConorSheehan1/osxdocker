@@ -16,6 +16,13 @@ See: https://stackoverflow.com/questions/42527291/clear-logs-in-native-docker-on
 pip3 install osxdocker
 ```
 
+## Dependencies
+Assumes you have `docker` and `screen` installed. If you don't, you can easily install them through brew. e.g.
+```
+brew cask install docker
+brew install screen
+```
+
 ## Usage
 ```bash
 # clear logs
