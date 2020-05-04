@@ -1,43 +1,23 @@
-.. osxdocker documentation master file, created by
-   sphinx-quickstart on Tue Apr 21 22:24:41 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-.. TODO: Add notes on installation, add readme, index, etc.
-
+.. TODO: README.md can't be added until https://github.com/sphinx-doc/sphinx/issues/7000 is resolved
 ..   autosummary::
 ..    :toctree: stubs
    
-..    DockerLogs
-..    DockerBase
+..    osxdocker.DockerLogs
+..    osxdocker.utils.DockerBase
+.. Does work but causes duplicate object description warnings
+.. If only using autosummary, class is missing from genindex
+.. If only using auoclass, class is missing from navigation in sidebar.
+
 
 osxdocker
 =====================================
+.. autosummary::
+   :toctree: modules
 
-.. automodule:: osxdocker
-    :members:
-
-.. autoclass:: osxdocker.DockerLogs
-    :members:
-    :special-members:
-    :show-inheritance:
-
-.. automodule:: osxdocker.utils
-    :members:
-
-.. autoclass:: osxdocker.utils.DockerBase
-    :members:
-    :special-members:
-
-.. autofunction:: osxdocker.utils.warn
+    osxdocker.DockerLogs
+    osxdocker.utils.DockerBase
+    osxdocker.utils.warn
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

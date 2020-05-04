@@ -9,7 +9,7 @@ from osxdocker.utils.warn import warn
 class DockerBase:
     """
     The base module for osxdocker.
-    
+
     Args:
         debug (bool): show full stack trace if true by raising exception. otherwise print warning. Default: false
         screen_name (str): name to use for screen daemon. Default: osxdocker
@@ -34,6 +34,9 @@ class DockerBase:
         #     print(__version__)
 
     def version(self):
+        """
+        Prints the version of osxdocker.
+        """
         print(__version__)
 
     def _get_shell_output(self, args):

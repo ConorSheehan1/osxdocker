@@ -21,6 +21,13 @@ project = 'osxdocker'
 copyright = '2020, Conor Sheehan'
 author = 'Conor Sheehan'
 
+from osxdocker import __version__
+
+# The short X.Y version.
+version = __version__
+# The full version, including alpha/beta/rc tags.
+release = version
+
 # -- General configuration ---------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -32,6 +39,7 @@ extensions = [
     'sphinx.ext.autosummary'
 ]
 
+autodoc_default_flags = ['members']
 autosummary_generate = True
 
 # Add any paths that contain templates here, relative to this directory.
@@ -71,8 +79,6 @@ source_parsers = {
 
 # https://www.sphinx-doc.org/en/master/usage/markdown.html
 source_suffix = ['.rst', '.md']
-
-# TODO: read __version__ from __init__.py
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
