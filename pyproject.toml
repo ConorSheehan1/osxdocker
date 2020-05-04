@@ -1,42 +1,83 @@
+[tool.poetry]
+name = "osxdocker"
+version = "0.1.1"
+description = "A CLI for working with docker on OSX"
+authors = ["Conor Sheehan <conor.sheehan.dev@gmail.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6" # bump back down once dev-extras section is added, no conflict with black >= 3.6
+fire = "^0.3.1"
+termcolor = "^1.1.0"
+
+# should be dev-extras https://github.com/python-poetry/poetry/issues/1644
+[tool.poetry.dev-dependencies]
+black = { version = "*", allows-prereleases = true }
+pytest = "*"
+docker = "*"
+isort = {extras = ["poetry"], version = "*"}
+recommonmark = "*"
+sphinx = "*"
+sphinx-autobuild = "*"
+taskipy = "*"
+
 [build-system]
-requires = ["flit_core >=2,<3"]
-build-backend = "flit_core.buildapi"
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
 
-[tool.flit.metadata]
-module = "osxdocker"
-author = "Conor Sheehan"
-author-email = "conor.sheehan.dev@gmail.com"
-home-page = "https://github.com/ConorSheehan1/osxdocker"
-description-file="README.md"
-classifiers = [
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Topic :: Software Development",
-    "Topic :: Utilities",
-]
-requires-python=">=3"
-requires = ["fire", "termcolor"]
+# https://github.com/python-poetry/poetry/issues/241
+[tool.taskipy.tasks]
+# TODO: use poetry to build / publish
+# flit should symlink osxdocker into bin dir of venv after `pipenv run dev_install`
+dev_osxdocker = "python osxdocker/docker_logs.py"
+dev_install = "flit install --symlink"
+tests = "python -m pytest tests"
+lint = "black ."
+build_docs= "sphinx-autobuild docs/source docs/build/html"
+# need ~/.pypirc setup
+publish_test = "flit publish --repository testpypi"
+publish = "flit publish"
 
-[tool.flit.metadata.requires-extra]
-test = [
-    "black",
-    "pytest",
-    "docker",
-    "rope",
-    "isort"
-]
+# [tool.flit.metadata]
+# module = "osxdocker"
+# author = "Conor Sheehan"
+# author-email = "conor.sheehan.dev@gmail.com"
+# home-page = "https://github.com/ConorSheehan1/osxdocker"
+# description-file="README.md"
+# classifiers = [
+#     "Intended Audience :: Developers",
+#     "License :: OSI Approved :: MIT License",
+#     "Programming Language :: Python :: 3",
+#     "Topic :: Software Development",
+#     "Topic :: Utilities",
+# ]
+# requires-python=">=3"
+# requires = ["fire", "termcolor"]
 
-doc = [
-    "sphinx",
-    "recommonmark",
-    "sphinx-autobuild"
-]
+# [tool.flit.metadata.requires-extra]
+# test = [
+#     "black",
+#     "pytest",
+#     "docker",
+#     "rope",
+#     "isort"
+# ]
 
-[tool.flit.scripts]
-osxdocker = "osxdocker:main"
+# doc = [
+#     "sphinx",
+#     "recommonmark",
+#     "sphinx-autobuild"
+# ]
 
-[tool.flit.sdist]
-exclude = [
-    "Pipfile.lock"
-]
+# [tool.flit.scripts]
+# osxdocker = "osxdocker:main"
+
+# [tool.flit.sdist]
+# exclude = [
+#     "Pipfile.lock"
+# ]
+
+# [build-system]
+# requires = ["flit_core >=2,<3"]
+# build-backend = "flit_core.buildapi"
+
