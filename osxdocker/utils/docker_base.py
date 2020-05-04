@@ -7,6 +7,16 @@ from osxdocker.utils.warn import warn
 
 
 class DockerBase:
+    """
+    The base module for osxdocker.
+    
+    Args:
+        debug (bool): show full stack trace if true by raising exception. otherwise print warning. Default: false
+        screen_name (str): name to use for screen daemon. Default: osxdocker
+        encoding (str): encoding to use for shell. Default: utf-8
+        vm_path (str): path to docker vm. Default: ~/Library/Containers/com.docker.docker/Data/vms/0/tty
+    """
+
     def __init__(
         self,
         debug=False,

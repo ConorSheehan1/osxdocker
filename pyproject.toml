@@ -27,6 +27,11 @@ test = [
     "isort"
 ]
 
+doc = [
+    "sphinx",
+    "recommonmark"
+]
+
 [tool.flit.scripts]
 osxdocker = "osxdocker:main"
 
