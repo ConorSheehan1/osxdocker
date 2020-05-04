@@ -29,7 +29,8 @@ test = [
 
 doc = [
     "sphinx",
-    "recommonmark"
+    "recommonmark",
+    "sphinx-autobuild"
 ]
 
 [tool.flit.scripts]
