@@ -9,6 +9,7 @@ dev_osxdocker = "python osxdocker/docker_logs.py"
 dev_install = "flit install --symlink"
 tests = "python -m pytest tests"
 lint = "black ."
+build_docs= "sphinx-autobuild docs/source docs/build/html"
 # need ~/.pypirc setup
 publish_test = "flit publish --repository testpypi"
 publish = "flit publish"
@@ -20,10 +21,14 @@ flit = "*"
 pytest = "*"
 docker = "*"
 isort = {extras = ["pipfile"],version = "*"}
+sphinx = "==2.4.4"
+recommonmark = "*"
+sphinx-autobuild = "*"
 
 [packages]
 fire = "*"
 termcolor = "*"
+sphinx = "*"
 
 [requires]
 python_version = "3"

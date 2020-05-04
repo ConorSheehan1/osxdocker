@@ -27,6 +27,12 @@ test = [
     "isort"
 ]
 
+doc = [
+    "sphinx",
+    "recommonmark",
+    "sphinx-autobuild"
+]
+
 [tool.flit.scripts]
 osxdocker = "osxdocker:main"
 
