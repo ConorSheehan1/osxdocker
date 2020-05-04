@@ -103,3 +103,8 @@ pipenv run lint
 # to sort imports
 pipenv run isort -y
 ```
+
+#### Docs
+```bash
+pipenv run build_docs
+```
