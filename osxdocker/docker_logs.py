@@ -18,7 +18,7 @@ class DockerLogs(DockerBase):
         >>> from osxdocker.docker_logs import DockerLogs
         >>> DockerLogs().log_path('foo')
     """
-    
+
     # could use _name_to_logpath, but keeping this function here for consistency. i.e. _id_to_logpath etc.
     # and keeping log_path so it's runnable from the cli.
     def log_path(self, container_name):
