@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "osxdocker"
-version = "0.1.1"
+version = "0.1.2"
 description = "A CLI for working with docker on OSX"
 authors = ["Conor Sheehan <conor.sheehan.dev@gmail.com>"]
 license = "MIT"
@@ -23,15 +23,15 @@ termcolor = "^1.1.0"
 
 # should be dev-extras https://github.com/python-poetry/poetry/issues/1644
 [tool.poetry.dev-dependencies]
-black = { version = "*", allows-prereleases = true }
-bump2version = "*"
-docker = "*"
-isort = {extras = ["poetry"], version = "*"}
-pytest = "*"
-recommonmark = "*"
-sphinx = "*"
-sphinx-autobuild = "*"
-taskipy = "*"
+black = { version = "*", allow-prereleases = true, optional = true }
+bump2version = { version = "*", optional = true }
+docker = { version = "*", optional = true }
+isort = { version = "*", extras = ["poetry"], optional = true}
+pytest = { version = "*", optional = true }
+recommonmark = { version = "*", optional = true }
+sphinx = { version = "*", optional = true }
+sphinx-autobuild = { version = "*", optional = true }
+taskipy = { version = "*", optional = true }
 
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
