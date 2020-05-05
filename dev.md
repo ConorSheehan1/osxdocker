@@ -52,3 +52,17 @@ poetry run task isort
 ```bash
 poetry run task build_docs
 ```
+
+#### Version management
+```bash
+# pass args e.g. patch, minor, major
+poetry run bumpversion --commit --tag patch
+
+# typical release cycle
+poetry run bumpversion --commit --tag patch
+poetry run task tests
+poetry run task ci_lint
+poetry publish --build
+```
+Source of truth is .bumpversion.cfg.
+See https://github.com/ConorSheehan1/osxdocker/issues/7 and https://github.com/python-poetry/poetry/issues/144#issuecomment-440061951
