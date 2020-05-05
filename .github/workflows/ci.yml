@@ -25,17 +25,17 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python }}
-    - name: Install Pipenv
+    - name: Install Poetry
       run: |
         python -m pip install --upgrade pip
-        pip install pipenv
+        pip install poetry
     # must be in it's own step, see https://github.com/actions/runner/issues/258
     - name: Install python packages
       run: |
-        pipenv install --verbose --dev --skip-lock --python=${{ matrix.python }}
+        poetry install --skip-lock --python=${{ matrix.python }}
     # - name: Run tests
     #   run: |
     #     pipenv run tests
     - name: Lint with black
       run: |
-        pipenv run black --check .
+        poetry run task ci_lint
