@@ -7,12 +7,19 @@
 
 # -- Path setup --------------------------------------------------------------
 
+# Standard Library
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
 import sys
+
+# Third party
+from recommonmark.parser import CommonMarkParser
+
+# osxdocker
+from osxdocker import __version__
 
 sys.path.insert(0, os.path.abspath("../.."))
 
@@ -22,7 +29,6 @@ project = "osxdocker"
 copyright = "2020, Conor Sheehan"
 author = "Conor Sheehan"
 
-from osxdocker import __version__
 
 # The short X.Y version.
 version = __version__
@@ -72,7 +78,6 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
 
-from recommonmark.parser import CommonMarkParser
 
 source_parsers = {
     ".md": CommonMarkParser,
