@@ -6,6 +6,10 @@ poetry install
 # https://github.com/python-poetry/poetry/issues/1135
 # workaround using __name__ == '__main__' and fire
 poetry run task dev_osxdocker
+
+# may need the following command to install watchdog, used for sphinx-autobuild
+# sudo xcode-select --switch /Library/Developer/CommandLineTools
+# https://github.com/streamlit/streamlit/issues/283#issuecomment-546682661
 ```
 
 ### Test pypi install
@@ -38,6 +42,11 @@ poetry publish
 ```bash
 poetry run task tests
 ```
+
+Note tests are not working in github actions yet because docker can't be installed on the github osx images.
+See https://github.com/ConorSheehan1/osxdocker/issues/5 and https://github.community/t5/GitHub-Actions/Why-is-Docker-not-installed-on-macOS/m-p/39364#M3782
+
+Tested locally on OSX Mojave 10.14.6, docker 19.03.5 (installed via `brew install docker`).
 
 #### Linter
 ```bash
