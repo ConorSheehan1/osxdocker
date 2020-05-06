@@ -15,8 +15,6 @@
 import os
 import sys
 
-# Third party
-from recommonmark.parser import CommonMarkParser
 
 # osxdocker
 from osxdocker import __version__
@@ -62,7 +60,7 @@ exclude_patterns = []
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -77,11 +75,6 @@ html_theme_options = {
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ["_static"]
-
-
-source_parsers = {
-    ".md": CommonMarkParser,
-}
 
 # https://www.sphinx-doc.org/en/master/usage/markdown.html
 source_suffix = [".rst", ".md"]

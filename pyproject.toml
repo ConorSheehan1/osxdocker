@@ -36,6 +36,7 @@ taskipy = "*"
 
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
+sphinx_rtd_theme = "^0.4.3"
 [tool.taskipy.tasks]
 build_docs = "sphinx-autobuild docs/source docs/build/html"
 bumpversion = "bumpversion"
