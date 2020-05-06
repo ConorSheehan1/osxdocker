@@ -22,16 +22,17 @@ fire = "^0.3.1"
 termcolor = "^1.1.0"
 
 # should be dev-extras https://github.com/python-poetry/poetry/issues/1644
+# can't have dev optionals https://github.com/python-poetry/poetry/pull/606
 [tool.poetry.dev-dependencies]
-black = { version = "*", allow-prereleases = true, optional = true }
-bump2version = { version = "*", optional = true }
-docker = { version = "*", optional = true }
-isort = { version = "*", extras = ["poetry"], optional = true}
-pytest = { version = "*", optional = true }
-recommonmark = { version = "*", optional = true }
-sphinx = { version = "*", optional = true }
-sphinx-autobuild = { version = "*", optional = true }
-taskipy = { version = "*", optional = true }
+black = { version = "*", allow-prereleases = true }
+bump2version = "*"
+docker = "*"
+isort = { version = "*", extras = ["poetry"] }
+pytest = "*"
+recommonmark = "*"
+sphinx = "*"
+sphinx-autobuild = "*"
+taskipy = "*"
 
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
