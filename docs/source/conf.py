@@ -44,6 +44,8 @@ extensions = [
     "sphinx.ext.autosummary",
 ]
 
+# https://github.com/readthedocs/readthedocs.org/issues/2569#issuecomment-485117471
+master_doc = 'index'
 autodoc_default_flags = ["members"]
 autosummary_generate = True
 
