@@ -55,3 +55,6 @@ e.g. You have two containers, named foo and foo_too.
 `osxdocker cat_log ^foo$` will work because it matches foo exactly.
 
 ![multiple_container_error](docs/source/images/multiple_container_error.png)
+
+#### Developer notes
+See [docs/source/dev.md](docs/source/dev.md)
