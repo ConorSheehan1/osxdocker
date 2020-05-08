@@ -5,9 +5,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # osxdocker
-A CLI for working with docker on OSX 
+A CLI for working with docker on OSX :apple: :snake:
 
-Currently it only handles docker logs, because I found it annoying starting up a screen session to get to the docker vm every time I wanted to clear logs.
+Currently it just handles docker logs, because I found it annoying starting up a screen session to get to the docker vm every time I wanted to clear logs. :man_shrugging:  
 See: https://stackoverflow.com/questions/42527291/clear-logs-in-native-docker-on-mac
 
 ## Install
@@ -17,7 +17,7 @@ pip3 install osxdocker
 ```
 
 ## Dependencies
-Assumes you have `docker` and `screen` installed. If you don't, you can easily install them through brew. e.g.
+Assumes you have `docker` and `screen` installed. If you don't, you can easily install them through [brew](https://brew.sh/). e.g.
 ```
 brew cask install docker
 brew install screen
