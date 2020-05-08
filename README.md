@@ -32,7 +32,7 @@ osxdocker clear_log $some_container_name
 osxdocker
 ```
 
-![clear_log_example](.github/images/clear_log_example.png)
+![clear_log_example](docs/source/images/clear_log_example.png)
 
 This cli uses https://github.com/google/python-fire  
 Check out the docs for more details on usage, setting up bash completion, etc.  
@@ -54,4 +54,4 @@ e.g. You have two containers, named foo and foo_too.
 `osxdocker cat_log foo` will fail because it matches foo and foo_too.  
 `osxdocker cat_log ^foo$` will work because it matches foo exactly.
 
-![multiple_container_error](.github/images/multiple_container_error.png)
+![multiple_container_error](docs/source/images/multiple_container_error.png)

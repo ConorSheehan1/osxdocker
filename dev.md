@@ -76,3 +76,9 @@ poetry publish --build --repository testpypi
 ```
 Source of truth is .bumpversion.cfg.
 See https://github.com/ConorSheehan1/osxdocker/issues/7 and https://github.com/python-poetry/poetry/issues/144#issuecomment-440061951
+
+#### Git hooks
+```bash
+poetry run task install_hooks
+# use --force to overwrite hooks if they already exist
+```

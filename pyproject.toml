@@ -45,6 +45,7 @@ dev_osxdocker = "python osxdocker/docker_logs.py"
 isort = 'isort -y'
 lint = "black ."
 tests = "python -m pytest tests"
+install_hooks = "python .githooks/install.py"
 
 # cli entrypoint
 [tool.poetry.scripts]
