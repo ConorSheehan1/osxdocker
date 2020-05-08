@@ -1,8 +1,8 @@
 [![Build Status](https://github.com/ConorSheehan1/osxdocker/workflows/ci/badge.svg)](https://github.com/ConorSheehan1/osxdocker/actions/)
+[![Documentation Status](https://readthedocs.org/projects/osxdocker/badge/?version=latest)](https://osxdocker.readthedocs.io)
 [![PyPI](https://img.shields.io/pypi/v/osxdocker)](https://pypi.org/project/osxdocker/)
 [![PyPI - License](https://img.shields.io/pypi/l/osxdocker)](https://opensource.org/licenses/MIT)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-[![GitHub Pipenv locked Python version](https://img.shields.io/github/pipenv/locked/python-version/ConorSheehan1/osxdocker)](https://github.com/ConorSheehan1/osxdocker/blob/master/Pipfile)
 
 # osxdocker
 A CLI for working with docker on OSX 
@@ -32,7 +32,7 @@ osxdocker clear_log $some_container_name
 osxdocker
 ```
 
-![clear_log_example](.github/images/clear_log_example.png)
+![clear_log_example](docs/source/images/clear_log_example.png)
 
 This cli uses https://github.com/google/python-fire  
 Check out the docs for more details on usage, setting up bash completion, etc.  
@@ -54,57 +54,7 @@ e.g. You have two containers, named foo and foo_too.
 `osxdocker cat_log foo` will fail because it matches foo and foo_too.  
 `osxdocker cat_log ^foo$` will work because it matches foo exactly.
 
-![multiple_container_error](.github/images/multiple_container_error.png)
+![multiple_container_error](docs/source/images/multiple_container_error.png)
 
-## Developer details
-### Dev Install
-```bash
-# install dev dependencies
-pipenv install --dev
-
-# install osxdocker as symlink to avoid reinstall whenever code changes
-pipenv run dev_install
-
-# only runs from pipenv in dev
-pipenv run osxdocker 
-```
-
-### Test pypi install
-```bash
-# install from test pypi, allow pull from non-test pypi for fire
-pip3 install --index-url https://test.pypi.org/simple/ --extra-index-url https://pypi.org/simple osxdocker
-```
-
-### Dev tools
-#### Deploy
-https://github.com/takluyver/flit/ manages building and deploying
-
-```bash
-# build dist
-pipenv run flit build
-
-# publish to test pypi
-pipenv run publish_test
-
-# really publish
-pipenv run publish
-```
-
-#### Tests
-```bash
-pipenv run tests
-```
-
-#### Linter
-```bash
-# to autoformat python code
-pipenv run lint
-
-# to sort imports
-pipenv run isort -y
-```
-
-#### Docs
-```bash
-pipenv run build_docs
-```
+#### Developer notes
+See [docs/source/dev.md](docs/source/dev.md)

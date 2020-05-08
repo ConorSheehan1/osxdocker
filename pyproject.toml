@@ -1,13 +1,12 @@
-[build-system]
-requires = ["flit_core >=2,<3"]
-build-backend = "flit_core.buildapi"
-
-[tool.flit.metadata]
-module = "osxdocker"
-author = "Conor Sheehan"
-author-email = "conor.sheehan.dev@gmail.com"
-home-page = "https://github.com/ConorSheehan1/osxdocker"
-description-file="README.md"
+[tool.poetry]
+name = "osxdocker"
+version = "0.1.2"
+description = "A CLI for working with docker on OSX"
+authors = ["Conor Sheehan <conor.sheehan.dev@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/ConorSheehan1/osxdocker"
+readme = "README.md"
+documentation = "https://osxdocker.readthedocs.io"
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
@@ -15,28 +14,44 @@ classifiers = [
     "Topic :: Software Development",
     "Topic :: Utilities",
 ]
-requires-python=">=3"
-requires = ["fire", "termcolor"]
 
-[tool.flit.metadata.requires-extra]
-test = [
-    "black",
-    "pytest",
-    "docker",
-    "rope",
-    "isort"
-]
+# would be nice to sort these https://github.com/python-poetry/poetry/issues/312
+[tool.poetry.dependencies]
+python = "^3.6" # bump back down once dev-extras section is added, no conflict with black >= 3.6
+fire = "^0.3.1"
+termcolor = "^1.1.0"
 
-doc = [
-    "sphinx",
-    "recommonmark",
-    "sphinx-autobuild"
-]
+# should be dev-extras https://github.com/python-poetry/poetry/issues/1644
+# can't have dev optionals https://github.com/python-poetry/poetry/pull/606
+[tool.poetry.dev-dependencies]
+black = { version = "*", allow-prereleases = true }
+bump2version = "*"
+docker = "*"
+isort = { version = "*", extras = ["poetry"] }
+pytest = "*"
+recommonmark = "*"
+sphinx = "*"
+sphinx-autobuild = "*"
+taskipy = "*"
 
-[tool.flit.scripts]
+# https://github.com/python-poetry/poetry/issues/241
+# dev scripts
+sphinx_rtd_theme = "^0.4.3"
+[tool.taskipy.tasks]
+build_docs = "sphinx-autobuild docs/source docs/build/html"
+bumpversion = "bumpversion"
+ci_lint = "black --check ."
+dev_osxdocker = "python osxdocker/docker_logs.py"
+isort = 'isort -y'
+lint = "black ."
+tests = "python -m pytest tests"
+install_hooks = "python .githooks/install.py"
+
+# cli entrypoint
+[tool.poetry.scripts]
 osxdocker = "osxdocker:main"
 
-[tool.flit.sdist]
-exclude = [
-    "Pipfile.lock"
-]
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
