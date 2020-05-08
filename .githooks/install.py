@@ -9,6 +9,12 @@ githooks_dir = os.path.dirname(os.path.realpath(__file__))
 
 
 def install_hooks(force=False):
+    """
+    symlink every file from .githooks to .git/hooks and make them executable
+
+    Args:
+        force (bool): force the symlink to overwrite existing files in .git/hooks
+    """
     ln_args = "--symbolic"
     if force:
         ln_args += " --force"

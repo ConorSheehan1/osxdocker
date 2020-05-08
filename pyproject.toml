@@ -6,7 +6,7 @@ authors = ["Conor Sheehan <conor.sheehan.dev@gmail.com>"]
 license = "MIT"
 homepage = "https://github.com/ConorSheehan1/osxdocker"
 readme="README.md"
-documentation="https://readthedocs.org/projects/osxdocker/"
+documentation="https://osxdocker.readthedocs.io"
 classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
