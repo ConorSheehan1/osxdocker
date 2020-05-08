@@ -5,9 +5,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 # osxdocker
-A CLI for working with docker on OSX :apple: :snake:
+A CLI for working with docker on OSX
 
-Currently it just handles docker logs, because I found it annoying starting up a screen session to get to the docker vm every time I wanted to clear logs. :man_shrugging:  
+Currently it just handles docker logs, because I found it annoying starting up a screen session to get to the docker vm every time I wanted to clear logs. 
 See: https://stackoverflow.com/questions/42527291/clear-logs-in-native-docker-on-mac
 
 ## Install
