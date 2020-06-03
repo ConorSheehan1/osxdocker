@@ -14,7 +14,7 @@ class DockerLogs(DockerBase):
     A module for interacting with docker logs.
 
     Example:
-    
+
         >>> from osxdocker.docker_logs import DockerLogs
         >>> DockerLogs().log_path('foo')
     """
@@ -45,19 +45,16 @@ class DockerLogs(DockerBase):
             container_name (str): name of the target container
         """
         log_path = self._name_to_logpath(container_name)
-        # start screen as daemon
-        subprocess.call(f"screen -dmS {self.screen_name} {self.vm_path}", shell=True)
-
-        # remove contents of log file, but don't remove the logfile itself.
         clear_log_command = f"echo '' > {log_path}"
-        subprocess.call(
-            f'screen -S {self.screen_name} -p 0 -X stuff $"{clear_log_command}"',
-            shell=True,
-        )
+        commands = [
+            f"screen -dmS {self.screen_name} {self.vm_path}",  # start screen as daemon
+            f'screen -S {self.screen_name} -p 0 -X stuff $"{clear_log_command}"',  # remove contents of log file, but don't remove the logfile itself.
+            f'screen -S {self.screen_name} -p 0 -X stuff $"\n"',  # send newline char to run command
+            f"screen -S {self.screen_name} -X quit",  # exit screen
+        ]
+        for command in commands:
+            subprocess.check_output(command, shell=True)
 
-        # # send new line char to run command
-        subprocess.call(f'screen -S {self.screen_name} -p 0 -X stuff $"\n"', shell=True)
-        subprocess.call(f"screen -S {self.screen_name} -X quit", shell=True)
         print(colored(f"Logs cleared for '{container_name}'", "green"))
 
 

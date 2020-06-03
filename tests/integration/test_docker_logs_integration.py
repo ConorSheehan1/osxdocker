@@ -52,10 +52,7 @@ class TestDockerLogsMultipleContainers(unittest.TestCase):
         self.client = docker.from_env()
         for i in range(2):
             self.client.containers.run(
-                "ubuntu:18.04",
-                "echo hello world",
-                name=f"{self.container_name}{i}",
-                detach=True,
+                "ubuntu:18.04", "echo hello world", name=f"{self.container_name}{i}", detach=True,
             )
 
     def tearDown(self):

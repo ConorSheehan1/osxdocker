@@ -48,6 +48,21 @@ tests = "python -m pytest tests"
 unit_tests = "python -m pytest tests/unit"
 install_hooks = "python .githooks/install.py"
 
+# linter configs
+[tool.isort]
+import_heading_stdlib = "Standard Library"
+import_heading_thirdparty = "Third party"
+import_heading_firstparty = "osxdocker"
+# copied from https://github.com/psf/black/blob/master/docs/compatible_configs.md
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 100
+
+[tool.black]
+line_length = 100
+
 # cli entrypoint
 [tool.poetry.scripts]
 osxdocker = "osxdocker:main"

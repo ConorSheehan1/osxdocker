@@ -45,9 +45,7 @@ class DockerBase:
         return subprocess.check_output(args).decode(self.encoding).strip()
 
     def _list_containers(self):
-        return self._get_shell_output(
-            ["docker", "ps", "--format", "table {{.ID}}\t{{.Names}}"]
-        )
+        return self._get_shell_output(["docker", "ps", "--format", "table {{.ID}}\t{{.Names}}"])
 
     def _ids_by_name(self, container_name, stopped=False):
         """
