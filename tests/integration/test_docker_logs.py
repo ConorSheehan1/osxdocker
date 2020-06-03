@@ -38,7 +38,7 @@ class TestDockerLogsNoContainer(unittest.TestCase):
         with self.assertRaises(Exception) as context:
             self.docker_logs.cat_log(self.container_name)
 
-        # GOTCHA: test will pass regardless of this assertion, if indented withing assertRaises context manager
+        # GOTCHA: test will pass regardless of this assertion, if indented within assertRaises context manager
         self.assertIn(
             f"could not find container matching name '{self.container_name}'.",
             str(context.exception),
