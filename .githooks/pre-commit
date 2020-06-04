@@ -9,9 +9,8 @@ if ! poetry run task ci_lint; then
     message="poetry run task lint"
 fi
 
-# if diff outputs anything
-difflen=$(poetry run task isort --diff | wc -l)
-if [ "$difflen" -gt 1 ]; then
+# if ci_isort doesn't return 0
+if ! poetry run task ci_isort; then
     ((ret+=1))
     message="$message; poetry run task isort"
 fi

@@ -38,13 +38,16 @@ taskipy = "*"
 # dev scripts
 sphinx_rtd_theme = "^0.4.3"
 sphinx-autodoc-typehints = "^1.10.3"
+mypy = "^0.780"
 [tool.taskipy.tasks]
 build_docs = "sphinx-autobuild docs/source docs/build/html"
 bumpversion = "bumpversion"
 ci_lint = "black --check ."
+ci_isort = "isort --check --diff"
 dev_osxdocker = "python osxdocker/docker_logs.py"
 isort = 'isort -y'
 lint = "black ."
+mypy = "mypy --ignore-missing-imports osxdocker"
 tests = "python -m pytest tests"
 unit_tests = "python -m pytest tests/unit"
 integration_tests = "python -m pytest tests/integration"

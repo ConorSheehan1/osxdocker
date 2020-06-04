@@ -15,7 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    # # no docker support on osx images :( 
+    # # no docker support on osx images :(
     # # https://github.community/t5/GitHub-Actions/Why-is-Docker-not-installed-on-macOS/m-p/39364#M3782
     # # can't run tests, and can't install through brew without interactive shell to install docker desktop
     # - name: Install docker
@@ -34,7 +34,16 @@ jobs:
         poetry install
     # - name: Run tests
     #   run: |
-    #     pipenv run tests
-    - name: Lint with black
+    #     poetry run task tests
+    - name: Run unit tests
+      run: |
+        poetry run task unit_tests
+    - name: Lint black
       run: |
         poetry run task ci_lint
+    - name: Lint isort
+      run: |
+        poetry run task ci_isort
+    - name: Lint mypy
+      run: |
+        poetry run task mypy
