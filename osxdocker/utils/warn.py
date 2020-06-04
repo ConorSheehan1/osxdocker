@@ -2,13 +2,17 @@
 from termcolor import colored
 
 
-def warn(message, debug=False):
+def warn(message: str, debug: bool = False):
     """
     Helper function to either print an error, or raise an exception for a full stack trace.
-    
+
     Args:
-        message (str): error message to print.
-        debug (bool): flag to either thrown an exception, or just print the message. Default: False
+        message: error message to print.
+        debug: flag to either thrown an exception, or print the message and exit. Default: False
+
+    Raises:
+        Exception: if debug is True, to provide a full trace
+        SystemExit: if debug is False, to return a non-zero status indicating the original command failed
     """
     if debug:
         raise Exception(message)  # prints stack trace to console.

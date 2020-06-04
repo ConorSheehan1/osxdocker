@@ -35,10 +35,11 @@ release = version
 # -- General configuration ---------------------------------------------------
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
-# ones.
+# ones. Order matters! https://github.com/agronholm/sphinx-autodoc-typehints/issues/15
 extensions = [
-    "sphinx.ext.autodoc",
     "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
+    "sphinx.ext.autodoc",
     "sphinx.ext.autosummary",
 ]
 
@@ -68,3 +69,4 @@ todo_include_todos = False
 # Napoleon settings
 napoleon_google_docstring = True
 napoleon_numpy_docstring = False
+napoleon_use_param = True

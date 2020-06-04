@@ -17,7 +17,7 @@ classifiers = [
 
 # would be nice to sort these https://github.com/python-poetry/poetry/issues/312
 [tool.poetry.dependencies]
-python = "^3.6" # bump back down once dev-extras section is added, no conflict with black >= 3.6
+python = "^3.6"
 fire = "^0.3.1"
 termcolor = "^1.1.0"
 
@@ -37,6 +37,7 @@ taskipy = "*"
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
 sphinx_rtd_theme = "^0.4.3"
+sphinx-autodoc-typehints = "^1.10.3"
 [tool.taskipy.tasks]
 build_docs = "sphinx-autobuild docs/source docs/build/html"
 bumpversion = "bumpversion"

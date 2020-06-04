@@ -14,35 +14,37 @@ class DockerLogs(DockerBase):
     A module for interacting with docker logs.
 
     Example:
-
         >>> from osxdocker.docker_logs import DockerLogs
         >>> DockerLogs().log_path('foo')
     """
 
     # could use _name_to_logpath, but keeping this function here for consistency. i.e. _id_to_logpath etc.
     # and keeping log_path so it's runnable from the cli.
-    def log_path(self, container_name):
+    def log_path(self, container_name: str) -> str:
         """
-        Gets the path to the log on the docker vm.
+        Returns the path to the log on the docker vm.
+
         Args:
-            container_name (str): name of the target container
+            container_name: name of the target container.
         """
         return self._name_to_logpath(container_name)
 
-    def cat_log(self, container_name):
+    def cat_log(self, container_name: str) -> str:
         """
-        Sends the log content to stdout.
+        Returns the content of the log.
+
         Args:
-            container_name (str): name of the target container
+            container_name: name of the target container.
         """
         container_id = self._name_to_id(container_name)
         return self._get_shell_output(["docker", "logs", container_id])
 
-    def clear_log(self, container_name):
+    def clear_log(self, container_name: str):
         """
         Clears the log file without deleting it.
+
         Args:
-            container_name (str): name of the target container
+            container_name: name of the target container.
         """
         log_path = self._name_to_logpath(container_name)
         clear_log_command = f"echo '' > {log_path}"
