@@ -15,6 +15,10 @@ class TestDockerLogs(unittest.TestCase):
 
     @patch("subprocess.check_output")
     def test_clear_log(self, check_output_mock):
+        """
+        This test covers clear_log and log_path,
+        because clear_log uses _name_to_logpath and log_path is a wrapper for _name_to_logpath
+        """
         check_output_mock.side_effect = [
             b"fake_docker_id\n",  # _name_to_id
             b"/temp/test_osxdocker/vm/path/fake_docker_id\n",  # _id_to_logpath
@@ -34,4 +38,18 @@ class TestDockerLogs(unittest.TestCase):
         ]
 
         self.docker_logs.clear_log(self.container_name)
+        check_output_mock.assert_has_calls(calls)
+
+    @patch("subprocess.check_output")
+    def test_cat_log(self, check_output_mock):
+        check_output_mock.side_effect = [
+            b"fake_docker_id\n",  # _name_to_id
+            b"/temp/test_osxdocker/vm/path/fake_docker_id\n",  # docker logs
+        ]
+        calls = [
+            call(["docker", "ps", "-qf", f"name={self.container_name}"]),
+            call(["docker", "logs", "fake_docker_id"]),
+        ]
+
+        self.docker_logs.cat_log(self.container_name)
         check_output_mock.assert_has_calls(calls)

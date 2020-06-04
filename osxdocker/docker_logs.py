@@ -23,7 +23,7 @@ class DockerLogs(DockerBase):
     # and keeping log_path so it's runnable from the cli.
     def log_path(self, container_name):
         """
-        Gets the path to the logfile in the vm for a container name.
+        Gets the path to the log on the docker vm.
         Args:
             container_name (str): name of the target container
         """
@@ -31,7 +31,7 @@ class DockerLogs(DockerBase):
 
     def cat_log(self, container_name):
         """
-        send log content the log to stdout
+        Sends the log content to stdout.
         Args:
             container_name (str): name of the target container
         """
@@ -40,7 +40,7 @@ class DockerLogs(DockerBase):
 
     def clear_log(self, container_name):
         """
-        Clears the log file without deleting it
+        Clears the log file without deleting it.
         Args:
             container_name (str): name of the target container
         """

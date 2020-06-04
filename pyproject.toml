@@ -46,6 +46,7 @@ isort = 'isort -y'
 lint = "black ."
 tests = "python -m pytest tests"
 unit_tests = "python -m pytest tests/unit"
+integration_tests = "python -m pytest tests/integration"
 install_hooks = "python .githooks/install.py"
 
 # linter configs
