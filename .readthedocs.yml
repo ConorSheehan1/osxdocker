@@ -3,7 +3,10 @@ version: 2
 python:
   version: 3.6
   install:
-      - requirements: docs/source/requirements.txt
+    - method: pip
+      path: .
+      extra_requirements:
+        - docs/source/requirements.txt
 
 sphinx:
   configuration: docs/source/conf.py
