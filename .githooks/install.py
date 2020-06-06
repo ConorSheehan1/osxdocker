@@ -15,9 +15,6 @@ def install_hooks(force=False):
     Args:
         force (bool): force the symlink to overwrite existing files in .git/hooks
     """
-    ln_args = "--symbolic"
-    if force:
-        ln_args += " --force"
 
     for filepath in glob(f"{githooks_dir}/*"):
         if filepath.endswith("install.py"):
@@ -25,7 +22,11 @@ def install_hooks(force=False):
 
         filename = os.path.basename(filepath)
         new_path = os.path.join(githooks_dir, "..", ".git", "hooks", filename)
-        os.system(f"ln {ln_args} {filepath} {new_path}")
+
+        if force and os.path.exists(new_path):
+            os.unlink(new_path)  # remove old git hook
+
+        os.symlink(filepath, new_path)
         os.system(f"sudo chmod +x {new_path}")
 
 

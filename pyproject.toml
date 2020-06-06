@@ -17,7 +17,7 @@ classifiers = [
 
 # would be nice to sort these https://github.com/python-poetry/poetry/issues/312
 [tool.poetry.dependencies]
-python = "^3.6" # bump back down once dev-extras section is added, no conflict with black >= 3.6
+python = "^3.6"
 fire = "^0.3.1"
 termcolor = "^1.1.0"
 
@@ -37,15 +37,36 @@ taskipy = "*"
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
 sphinx_rtd_theme = "^0.4.3"
+sphinx-autodoc-typehints = "^1.10.3"
+mypy = "^0.780"
 [tool.taskipy.tasks]
 build_docs = "sphinx-autobuild docs/source docs/build/html"
 bumpversion = "bumpversion"
 ci_lint = "black --check ."
+ci_isort = "isort --check --diff"
 dev_osxdocker = "python osxdocker/docker_logs.py"
 isort = 'isort -y'
 lint = "black ."
+mypy = "mypy --ignore-missing-imports osxdocker"
 tests = "python -m pytest tests"
+unit_tests = "python -m pytest tests/unit"
+integration_tests = "python -m pytest tests/integration"
 install_hooks = "python .githooks/install.py"
+
+# linter configs
+[tool.isort]
+import_heading_stdlib = "Standard Library"
+import_heading_thirdparty = "Third party"
+import_heading_firstparty = "osxdocker"
+# copied from https://github.com/psf/black/blob/master/docs/compatible_configs.md
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 100
+
+[tool.black]
+line_length = 100
 
 # cli entrypoint
 [tool.poetry.scripts]

@@ -89,3 +89,7 @@ See https://github.com/ConorSheehan1/osxdocker/issues/7 and https://github.com/p
 poetry run task install_hooks
 # use --force to overwrite hooks if they already exist
 ```
+
+#### GNU screen
+Had failing test on clear_log. Screen session was in invalid state, possibly from force quitting test suite.
+Solution was to log on to screen manually and flush STDIN. 
