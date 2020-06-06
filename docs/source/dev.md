@@ -76,6 +76,8 @@ poetry run bumpversion --commit --tag patch
 poetry run task tests
 poetry run task ci_lint
 poetry run bumpversion --commit --tag patch
+git push
+git push --tags
 
 poetry config repositories.testpypi https://test.pypi.org/legacy/
 poetry publish --build --repository testpypi

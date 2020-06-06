@@ -28,17 +28,17 @@ black = { version = "*", allow-prereleases = true }
 bump2version = "*"
 docker = "*"
 isort = { version = "*", extras = ["poetry"] }
+mypy = "^0.780"
 pytest = "*"
 recommonmark = "*"
 sphinx = "*"
 sphinx-autobuild = "*"
+sphinx_rtd_theme = "^0.4.3"
+sphinx-autodoc-typehints = "^1.10.3"
 taskipy = "*"
 
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
-sphinx_rtd_theme = "^0.4.3"
-sphinx-autodoc-typehints = "^1.10.3"
-mypy = "^0.780"
 [tool.taskipy.tasks]
 build_docs = "sphinx-autobuild docs/source docs/build/html"
 bumpversion = "bumpversion"
