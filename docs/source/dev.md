@@ -67,6 +67,11 @@ poetry run task isort
 poetry run task build_docs
 ```
 
+https://docs.readthedocs.io/ issue with poetry and dev deps.
+https://github.com/readthedocs/readthedocs.org/issues/4912
+won't install poetry dev packages, need docs/source/requirements.txt
+generate using poetry run pip freeze > docs/source/requirements.txt
+
 #### Version management
 ```bash
 # pass args e.g. patch, minor, major

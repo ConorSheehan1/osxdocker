@@ -3,13 +3,8 @@ version: 2
 python:
   version: 3.6
   install:
-    - method: pip
-      path: .
-      # https://github.com/readthedocs/readthedocs.org/issues/4912
-      # won't install poetry dev packages, need docs/source/requirements.txt
-      # generate using poetry run pip freeze > docs/source/requirements.txt
-      extra_requirements:
-        - docs/source
+      requirements:
+        - docs/source/requirements.txt
 
 sphinx:
   configuration: docs/source/conf.py
