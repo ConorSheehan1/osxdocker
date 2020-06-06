@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "osxdocker"
-version = "0.1.2"
+version = "0.1.3"
 description = "A CLI for working with docker on OSX"
 authors = ["Conor Sheehan <conor.sheehan.dev@gmail.com>"]
 license = "MIT"
