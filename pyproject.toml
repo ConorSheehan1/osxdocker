@@ -40,11 +40,11 @@ taskipy = "*"
 # https://github.com/python-poetry/poetry/issues/241
 # dev scripts
 [tool.taskipy.tasks]
-build_docs = "sphinx-autobuild docs/source docs/build/html"
+docs = "sphinx-autobuild docs/source docs/build/html"
 bumpversion = "bumpversion"
 ci_lint = "black --check ."
 ci_isort = "isort --check --diff"
-dev_osxdocker = "python osxdocker/docker_logs.py"
+dev = "python osxdocker/docker_logs.py"
 isort = 'isort -y'
 lint = "black ."
 mypy = "mypy --ignore-missing-imports osxdocker"

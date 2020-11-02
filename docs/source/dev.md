@@ -5,7 +5,7 @@ poetry install
 # install osxdocker as symlink to avoid reinstall whenever code changes
 # https://github.com/python-poetry/poetry/issues/1135
 # workaround using __name__ == '__main__' and fire
-poetry run task dev_osxdocker
+poetry run task dev
 
 # may need the following command to install watchdog, used for sphinx-autobuild
 # sudo xcode-select --switch /Library/Developer/CommandLineTools
@@ -64,7 +64,7 @@ poetry run task isort
 #### Docs
 ```bash
 # built with sphinx-autobuild
-poetry run task build_docs
+poetry run task docs
 ```
 
 https://docs.readthedocs.io/ issue with poetry and dev deps.
