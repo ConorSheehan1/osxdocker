@@ -12,15 +12,11 @@ See: https://stackoverflow.com/questions/42527291/clear-logs-in-native-docker-on
 
 ## Install
 ```bash
-# python3 only
-pip3 install osxdocker
-```
+# installs osxdocker and recommended docker and screen dependencies
+brew install conorsheehan1/conorsheehan1/osxdocker
 
-## Dependencies
-Assumes you have `docker` and `screen` installed. If you don't, you can easily install them through [brew](https://brew.sh/). e.g.
-```
-brew cask install docker
-brew install screen
+# installs osxdocker cli only, assumes you have docker and screen on your path
+pip3 install osxdocker
 ```
 
 ## Usage
