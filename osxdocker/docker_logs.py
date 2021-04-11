@@ -29,7 +29,7 @@ class DockerLogs(DockerBase):
         """
         return self._name_to_logpath(container_name)
 
-    def cat_log(self, container_name: str) -> str:
+    def cat_logs(self, container_name: str) -> str:
         """
         Returns the content of the log.
 

@@ -47,8 +47,8 @@ Also worth noting:
 #### Edge cases and gotchas
 Container names are unique, but containers are filtered by regex, so you can still run into issues.  
 e.g. You have two containers, named foo and foo_too.  
-`osxdocker cat_log foo` will fail because it matches foo and foo_too.  
-`osxdocker cat_log ^foo$` will work because it matches foo exactly.
+`osxdocker cat_logs foo` will fail because it matches foo and foo_too.  
+`osxdocker cat_logs ^foo$` will work because it matches foo exactly.
 
 ![multiple_container_error](docs/source/images/multiple_container_error.png)
 

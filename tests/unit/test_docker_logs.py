@@ -41,7 +41,7 @@ class TestDockerLogs(unittest.TestCase):
         check_output_mock.assert_has_calls(calls)
 
     @patch("subprocess.check_output")
-    def test_cat_log(self, check_output_mock):
+    def test_cat_logs(self, check_output_mock):
         check_output_mock.side_effect = [
             b"fake_docker_id\n",  # _name_to_id
             b"/temp/test_osxdocker/vm/path/fake_docker_id\n",  # docker logs
@@ -51,5 +51,5 @@ class TestDockerLogs(unittest.TestCase):
             call(["docker", "logs", "fake_docker_id"]),
         ]
 
-        self.docker_logs.cat_log(self.container_name)
+        self.docker_logs.cat_logs(self.container_name)
         check_output_mock.assert_has_calls(calls)

@@ -22,11 +22,11 @@ class TestDockerLogs(unittest.TestCase):
         self.client.api.remove_container(self.container_name, force=True)
 
     def test_cat_log(self):
-        assert self.docker_logs.cat_log(self.container_name) == "hello world"
+        assert self.docker_logs.cat_logs(self.container_name) == "hello world"
 
     def test_clear_log(self):
         self.docker_logs.clear_log(self.container_name)
-        assert self.docker_logs.cat_log(self.container_name) == ""
+        assert self.docker_logs.cat_logs(self.container_name) == ""
 
 
 class TestDockerLogsNoContainer(unittest.TestCase):
@@ -36,7 +36,7 @@ class TestDockerLogsNoContainer(unittest.TestCase):
 
     def test_no_container_exception(self):
         with self.assertRaises(Exception) as context:
-            self.docker_logs.cat_log(self.container_name)
+            self.docker_logs.cat_logs(self.container_name)
 
         # GOTCHA: test will pass regardless of this assertion, if indented within assertRaises context manager
         self.assertIn(
@@ -64,7 +64,7 @@ class TestDockerLogsMultipleContainers(unittest.TestCase):
         self.client.api.wait(f"{self.container_name}1")
 
         with self.assertRaises(Exception) as context:
-            self.docker_logs.cat_log(self.container_name)
+            self.docker_logs.cat_logs(self.container_name)
 
         self.assertIn(
             f"multiple containers found matching name '{self.container_name}'. Run `docker ps -af name={self.container_name}` for details.",
