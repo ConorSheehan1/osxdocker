@@ -36,7 +36,7 @@ Also worth noting:
 1. Because the package uses fire, it can be imported like a normal python package. e.g.
     ```python
     from osxdocker.docker_logs import DockerLogs
-    DockerLogs().log_path('foo')
+    DockerLogs().logs_path('foo')
     ```
 2. This cli doesn't support `--version` due to a quirk with fire.
     ```bash

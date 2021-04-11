@@ -86,17 +86,17 @@ class DockerBase:
 
         return container_id
 
-    def _id_to_logpath(self, container_id: str) -> str:
-        log_path = self._get_shell_output(
-            ["docker", "inspect", "--format='{{.LogPath}}'", container_id]
+    def _id_to_logspath(self, container_id: str) -> str:
+        logs_path = self._get_shell_output(
+            ["docker", "inspect", "--format='{{.logspath}}'", container_id]
         )
 
-        if not log_path:
-            warn(f"log_path not found for container '{container_id}'.", self.debug)
+        if not logs_path:
+            warn(f"logs_path not found for container '{container_id}'.", self.debug)
 
-        return log_path
+        return logs_path
 
-    def _name_to_logpath(self, container_name: str) -> str:
+    def _name_to_logspath(self, container_name: str) -> str:
         container_id = self._name_to_id(container_name)
-        log_path = self._id_to_logpath(container_id)
-        return log_path
+        logs_path = self._id_to_logspath(container_id)
+        return logs_path

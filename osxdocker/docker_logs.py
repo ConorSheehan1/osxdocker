@@ -15,19 +15,19 @@ class DockerLogs(DockerBase):
 
     Example:
         >>> from osxdocker.docker_logs import DockerLogs
-        >>> DockerLogs().log_path('foo')
+        >>> DockerLogs().logs_path('foo')
     """
 
-    # could use _name_to_logpath, but keeping this function here for consistency. i.e. _id_to_logpath etc.
-    # and keeping log_path so it's runnable from the cli.
-    def log_path(self, container_name: str) -> str:
+    # could use _name_to_logspath, but keeping this function here for consistency. e.g. _id_to_logspath etc.
+    # and keeping logs_path so it's runnable from the cli.
+    def logs_path(self, container_name: str) -> str:
         """
         Returns the path to the log on the docker vm.
 
         Args:
             container_name: name of the target container.
         """
-        return self._name_to_logpath(container_name)
+        return self._name_to_logspath(container_name)
 
     def cat_logs(self, container_name: str) -> str:
         """
@@ -46,8 +46,8 @@ class DockerLogs(DockerBase):
         Args:
             container_name: name of the target container.
         """
-        log_path = self._name_to_logpath(container_name)
-        clear_logs_command = f"echo '' > {log_path}"
+        logs_path = self._name_to_logspath(container_name)
+        clear_logs_command = f"echo '' > {logs_path}"
         commands = [
             f"screen -dmS {self.screen_name} {self.vm_path}",  # start screen as daemon
             f'screen -S {self.screen_name} -p 0 -X stuff $"{clear_logs_command}"',  # remove contents of log file, but don't remove the logfile itself.
