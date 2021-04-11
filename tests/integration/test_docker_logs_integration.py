@@ -24,8 +24,8 @@ class TestDockerLogs(unittest.TestCase):
     def test_cat_log(self):
         assert self.docker_logs.cat_logs(self.container_name) == "hello world"
 
-    def test_clear_log(self):
-        self.docker_logs.clear_log(self.container_name)
+    def test_clear_logs(self):
+        self.docker_logs.clear_logs(self.container_name)
         assert self.docker_logs.cat_logs(self.container_name) == ""
 
 

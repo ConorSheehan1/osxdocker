@@ -39,7 +39,7 @@ class DockerLogs(DockerBase):
         container_id = self._name_to_id(container_name)
         return self._get_shell_output(["docker", "logs", container_id])
 
-    def clear_log(self, container_name: str):
+    def clear_logs(self, container_name: str):
         """
         Clears the log file without deleting it.
 
@@ -47,10 +47,10 @@ class DockerLogs(DockerBase):
             container_name: name of the target container.
         """
         log_path = self._name_to_logpath(container_name)
-        clear_log_command = f"echo '' > {log_path}"
+        clear_logs_command = f"echo '' > {log_path}"
         commands = [
             f"screen -dmS {self.screen_name} {self.vm_path}",  # start screen as daemon
-            f'screen -S {self.screen_name} -p 0 -X stuff $"{clear_log_command}"',  # remove contents of log file, but don't remove the logfile itself.
+            f'screen -S {self.screen_name} -p 0 -X stuff $"{clear_logs_command}"',  # remove contents of log file, but don't remove the logfile itself.
             f'screen -S {self.screen_name} -p 0 -X stuff $"\n"',  # send newline char to run command
             f"screen -S {self.screen_name} -X quit",  # exit screen
         ]

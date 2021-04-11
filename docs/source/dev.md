@@ -98,5 +98,5 @@ poetry run task install_hooks
 ```
 
 #### GNU screen
-Had failing test on clear_log. Screen session was in invalid state, possibly from force quitting test suite.
+Had failing test on clear_logs. Screen session was in invalid state, possibly from force quitting test suite.
 Solution was to log on to screen manually and flush STDIN. 

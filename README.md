@@ -22,13 +22,13 @@ pip3 install osxdocker
 ## Usage
 ```bash
 # clear logs
-osxdocker clear_log $some_container_name
+osxdocker clear_logs $some_container_name
 
 # list available commands and flags
 osxdocker
 ```
 
-![clear_log_example](docs/source/images/clear_log_example.png)
+![clear_logs_example](docs/source/images/clear_logs_example.png)
 
 This cli uses https://github.com/google/python-fire  
 Check out the docs for more details on usage, setting up bash completion, etc.  

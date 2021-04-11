@@ -15,7 +15,7 @@ osxdocker.DockerLogs
 
       ~DockerLogs.__init__
       ~DockerLogs.cat_logs
-      ~DockerLogs.clear_log
+      ~DockerLogs.clear_logs
       ~DockerLogs.log_path
       ~DockerLogs.version
 
