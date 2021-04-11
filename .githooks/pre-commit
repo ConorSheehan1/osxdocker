@@ -15,5 +15,14 @@ if ! poetry run task ci_isort; then
     message="$message; poetry run task isort"
 fi
 
-echo "To fix run the following: $message"
+# if mypy doesn't return 0
+if ! poetry run task mypy; then
+    ((ret+=1))
+    message="$message; mypy error, needs to be resolved manually."
+fi
+
+if [ "$ret" -ne "0" ]; then
+    echo "To fix run the following: $message"
+fi
+
 exit $ret
